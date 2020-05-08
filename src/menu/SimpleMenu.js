@@ -6,11 +6,11 @@ import icons from 'glyphicons';
 class SimpleMenu extends PureComponent {
 
   menuListe = [
-            ["./demo/ManageData/ManageData" ,"Manage your data"],
-            ["./demo/ManageForms/ManageForms"   ,"Manage your forms"],
+            ["ManageData" ,"Manage your data"],
+            ["ManageForms"   ,"Manage your forms"],
 
-            ["./demo/FormatJson/FormatJson" , "Example : How to format Json"],
-            ["./demo/DynamicForm/JsonFormExample" ,"Example : Dynamic form"],
+            ["FormatJson" , "Example : How to format Json"],
+            ["JsonFormExample" ,"Example : Dynamic form"],
   ];
 
   constructor(props) {
@@ -26,7 +26,6 @@ class SimpleMenu extends PureComponent {
     if(menu) {
       this.state.menuItemText = menu[1];
     }
-    console.log('baseurl', window.location.href.split('?')[0]);
   };
 
 
@@ -37,9 +36,8 @@ class SimpleMenu extends PureComponent {
       <div className="row">
         
         {icons.rabbitFace}
-        Welcome !!! <a target="__BLANK" href="https://github.com/prawinn555/reactdemo">Readme</a>
+        Welcome !!
         {icons.rabbit}
-
 
         <Dropdown className="px-2">
           <Dropdown.Toggle variant="primary" id="dropdown-basic">
@@ -48,7 +46,7 @@ class SimpleMenu extends PureComponent {
 
           <Dropdown.Menu>
             { this.menuListe.map ( (v,index) => 
-              <Dropdown.Item href="#" onClick={ () => window.location.href = window.location.href.split('?')[0] + "?menu=" + v[0] } 
+              <Dropdown.Item href="#" onClick={ () => window.location.href='/'+v[0]} 
                    key={v[0]}>{v[1]}</Dropdown.Item>
             )}
           </Dropdown.Menu>
